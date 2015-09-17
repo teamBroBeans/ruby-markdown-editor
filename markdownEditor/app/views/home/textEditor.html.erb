@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Text Editor</title>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags%>
+    </head>
+    <body>
+        <div class="container">
+        <header>
+            <h1>Home#textEditor</h1>
+            <label for="mysearch">Enter the title here: </label>
+            <input id="mysearch" type="search" placeholder="search">
+            </br>
+            <label for="mysearch2">Enter the tag here: </label>
+            <input id="mysearch2" type="search" placeholder="search">
+            <button id="searchTag" type="button">Search Tag</button>
+
+        </header>
+        <section class="content">
+            <div class="inlineDiv">
+                <textarea cols="25" rows="20"></textarea>
+            </div>
+            <div class="inlineDiv">
+                <textarea cols="25" rows="20"></textarea>
+            </div>
+        </section>
+        <div class="buttonSave">
+            <button id="save" type="button">Save</button>
+            
+        </div>
+        <footer><h4></h4>Copyright <%=Date.today.year %> TeamBroBeans</h4></footer>
+        </div>
+    </body>
+</html>
