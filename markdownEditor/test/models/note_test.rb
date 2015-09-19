@@ -15,10 +15,16 @@ class NoteTest < ActiveSupport::TestCase
     assert note.errors[:title].include?("can't be blank")
   end
 
-    test "should not save unless tag is filled in" do
-      note = Note.new
-      assert !note.save
-      assert note.errors[:tag].include?("can't be blank")
-    end
-  
+  test "should not save unless tag is filled in" do
+    note = Note.new
+    assert !note.save
+    assert note.errors[:tag].include?("can't be blank")
+  end
+
+  test "should not save unless inputText is has content in" do
+    note = Note.new
+    assert !note.save
+    assert note.errors[:inputText].include?("can't be blank")
+end
+
 end
