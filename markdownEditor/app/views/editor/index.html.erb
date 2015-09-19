@@ -10,9 +10,15 @@
 <script>
   var options = {
     container: 'epiceditor',
+    basepath: 'assets/stylesheets',
     textarea: 'inputText',
     buttons: false,
-    autogrow: true
+    theme: {
+      base: '/themes/base/epiceditor.css',
+      preview: '/themes/preview/preview-dark.css',
+      editor: '/themes/editor/epic-dark.css'
+    },
+    autogrow: false
   }
   
   var editor = new EpicEditor(options).load();
