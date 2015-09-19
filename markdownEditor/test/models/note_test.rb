@@ -7,6 +7,12 @@ class NoteTest < ActiveSupport::TestCase
     note.tag = "#hiWorld"
     note.inputText = "#Hello World# "
     assert note.save
-end
+  end
+
+  test "should not save unless title is filled in" do
+    note = Note.new
+    assert !note.save
+    assert note.errors[:title].include?("can't be blank")
+  end
   
 end
