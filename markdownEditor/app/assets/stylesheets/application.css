@@ -10,9 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require themes/base
- *= require themes/editor
- *= require themes/preview
  *= require_tree .
  *= require_self
  */
+@import 'base/epiceditor';  
+@import 'preview/bartik';  
+@import 'preview/github';  
+@import 'preview/preview-dark';  
+@import 'editor/epic-dark';  
+@import 'editor/epic-light'; 
