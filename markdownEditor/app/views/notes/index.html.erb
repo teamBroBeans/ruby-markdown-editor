@@ -20,7 +20,7 @@
         <td><%= note.title %></td>
         <td><%= note.tag %></td>
         <td><%= note.inputText %></td>
-         <td><%= note.created_at%></td>
+         <td><%= note.created_at.localtime%></td>
         <td><%= note.updated_at.localtime%></td>
         <td><%= link_to 'Show', note %></td>
         <td><%= link_to 'Edit', edit_note_path(note) %></td>
