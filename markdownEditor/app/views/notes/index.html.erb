@@ -8,6 +8,8 @@
       <th>Title</th>
       <th>Tag</th>
       <th>Note</th>
+      <th>Note Created</th>
+      <th>Last Update</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +20,8 @@
         <td><%= note.title %></td>
         <td><%= note.tag %></td>
         <td><%= note.inputText %></td>
+         <td><%= note.created_at%></td>
+        <td><%= note.updated_at.localtime%></td>
         <td><%= link_to 'Show', note %></td>
         <td><%= link_to 'Edit', edit_note_path(note) %></td>
         <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
