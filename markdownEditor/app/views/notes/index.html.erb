@@ -20,11 +20,12 @@
         <td><%= note.title %></td>
         <td><%= note.tag %></td>
         <td><%= note.inputText %></td>
-         <td><%= note.created_at.localtime%></td>
-        <td><%= note.updated_at.localtime%></td>
+        <td><%= note.created_at.localtime%></td>
+				<td><%= time_ago_in_words(note.updated_at) %> ago</td>﻿        
         <td><%= link_to 'Show', note %></td>
         <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are
+         you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,3 +34,5 @@
 <br>
 
 <%= link_to 'New Note', new_note_path %>
+
+
