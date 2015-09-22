@@ -33,7 +33,11 @@
       textarea: 'note_inputText',
       clientSideStorage: false,
       buttons: false,
-      autogrow: true
+      autogrow: {
+        minHeight: 400,
+        maxHeight: false,
+        scroll: true
+      }
     }
   
     var editor = new EpicEditor(options).load();
