@@ -23,6 +23,25 @@
     <%= f.label :Note %><br>
     <%= f.text_area :inputText, :cols => 150, :rows => 50 %>
   </div>
+  
+  <div id="epiceditor"></div>
+  <div id="preview"></div>
+  <%= javascript_include_tag "epiceditor.js" %>
+  <script>
+    var options = {
+      container: 'epiceditor',
+      textarea: 'note_inputText',
+      buttons: false,
+      autogrow: false
+    }
+  
+    var editor = new EpicEditor(options).load();
+
+    editor.on('update', function(){
+      document.querySelector('#preview').innerHTML = this.exportFile(null, 'html');
+    }).emit('update');
+  </script>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
