@@ -13,20 +13,25 @@
  *= require_tree .
  *= require_self
  */
- .container{
-   background-color: black;
-   color: white;
-   text-align: center;
-   margin: 20px;
-   padding: 10px;
- }
- 
- .inlineDiv{
-  display: inline-block;
- }
- 
- #save{
-   display: center;
- }
+@import 'base/epiceditor';  
+@import 'preview/bartik';  
+@import 'preview/github';  
+@import 'preview/preview-dark';  
+@import 'editor/epic-dark';  
+@import 'editor/epic-light';
 
+.container{
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+}
 
+.inlineDiv{
+ display: inline-block;
+}
+
+#save{
+  display: center;
+}

@@ -1,0 +1,55 @@
+<h1>Editor#index</h1>
+<p>Find me in app/views/editor/index.html.erb</p>
+<!-- this textarea should be hidden if we are to use it for database storage -->
+<textarea id="inputText">
+  # EpicEditor, a very cool Javscript library
+  
+  >I had some crazy ideas in the beginning, but this is really all that is necessary to get it running!
+  
+  -- Sam Bristol
+  
+  
+  ```
+  <script>
+    var options = {
+      container: 'epiceditor',
+      textarea: 'inputText',
+      buttons: false,
+      autogrow: false
+    }
+  
+    var editor = new EpicEditor(options).load();
+
+    editor.on('update', function(){
+      document.querySelector('#preview').innerHTML = this.exportFile(null, 'html');
+    }).emit('update');
+  </script>
+  ```
+  
+  ## Here's how to get EpicEditor running!
+  
+  * Declare an editor variable, like so `var editor = new EpicEditor();`
+  * Make sure to call `editor.load()` or else the script won't fire.
+  * You can pass in an `options: {}` object when you construct the editor with `new Editor()`
+</textarea>
+<%= @epicHello %>
+<div id="epiceditor"></div>
+<div id="preview"></div>
+
+<%= javascript_include_tag "epiceditor.js" %>
+<script>
+  var options = {
+    container: 'epiceditor',
+    textarea: 'inputText',
+    buttons: false,
+    autogrow: false
+  }
+  
+  var editor = new EpicEditor(options).load();
+
+  editor.on('update', function(){
+    document.querySelector('#preview').innerHTML = this.exportFile(null, 'html');
+  }).emit('update');
+</script>
+    
+</script>
