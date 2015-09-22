@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notes
   get "home/textEditor"
   root controller: 'home', action: 'textEditor'
   # The priority is based upon order of creation: first created -> highest priority.
