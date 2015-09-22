@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get '/editor/index' => 'editor#index'
   resources :notes
   get "home/textEditor"
   root controller: 'home', action: 'textEditor'
