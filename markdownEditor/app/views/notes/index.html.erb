@@ -7,7 +7,6 @@
     <tr>
       <th>Title</th>
       <th>Tag</th>
-      <th>Note</th>
       <th>Note Created</th>
       <th>Last Update</th>
       <th colspan="3"></th>
@@ -19,9 +18,8 @@
       <tr>
         <td><%= note.title %></td>
         <td><%= note.tag %></td>
-        <td><%= note.inputText %></td>
-        <td><%= note.created_at.localtime%></td>
-				<td><%= time_ago_in_words(note.updated_at) %> ago</td>﻿        
+        <td><%= note.created_at.to_formatted_s(:long_ordinal) %></td>
+				<td><%= time_ago_in_words(note.updated_at) %> ago</td>
         <td><%= link_to 'Show', note %></td>
         <td><%= link_to 'Edit', edit_note_path(note) %></td>
         <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are

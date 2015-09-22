@@ -20,6 +20,14 @@
 @import 'editor/epic-dark';  
 @import 'editor/epic-light';
 
+table td {
+  color: black;
+}
+
+.actions {
+  clear: both;
+}
+
 .container{
   background-color: black;
   color: white;
@@ -30,6 +38,21 @@
 
 .inlineDiv{
  display: inline-block;
+}
+
+#epiceditor, #preview {
+  position: relative;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 40%;
+  float: left;
+  margin: auto;
+  padding-left: 20px;
+}
+
+#note_inputText { 
+  display: none;
 }
 
 #save{

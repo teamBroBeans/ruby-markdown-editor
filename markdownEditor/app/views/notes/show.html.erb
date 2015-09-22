@@ -10,10 +10,31 @@
   <%= @note.tag %>
 </p>
 
-<p>
-  <strong>Inputtext:</strong>
+<textarea id="note_inputText">
   <%= @note.inputText %>
-</p>
+</textarea>
 
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+<div id="epiceditor"></div>
+<%= javascript_include_tag "epiceditor.js" %>
+<script>
+  var options = {
+    container: 'epiceditor',
+    textarea: 'note_inputText',
+    clientSideStorage: false,
+    buttons: false,
+    autogrow: true
+  }
+
+  var editor = new EpicEditor(options);
+
+  editor.on('load', function(){
+    this.preview();
+  });
+  
+  editor.load();
+</script>
+
+<div class="actions">
+  <%= link_to 'Edit', edit_note_path(@note) %> |
+  <%= link_to 'Back', notes_path %>
+</div>
