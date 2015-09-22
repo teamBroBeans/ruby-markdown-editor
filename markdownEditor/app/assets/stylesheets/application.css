@@ -20,7 +20,7 @@
 @import 'editor/epic-dark';  
 @import 'editor/epic-light';
 
-body {
+table td {
   color: black;
 }
 
@@ -42,11 +42,13 @@ body {
 
 #epiceditor, #preview {
   position: relative;
+  color: black;
   border-radius: 5px;
   border: 1px solid black;
   width: 40%;
   float: left;
   margin-left: 5%;
+  padding-left: 20px;
 }
 
 #note_inputText { 
