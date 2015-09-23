@@ -10,9 +10,10 @@
   <nav>
     <%=link_to 'home', controller: 'home', action: 'textEditor' %>
     <%=link_to 'notes', controller: 'notes', action: 'index' %>
+     
      <% if flash[:notice] %>
-    <p class="flash-notice"><%= flash[:notice] %></p>
-  <% end %>
+   		<p id="notice"><%= notice %></p>
+   	 <% end %>
 
   </nav>
 
