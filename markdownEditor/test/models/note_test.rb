@@ -53,4 +53,20 @@ class NoteTest < ActiveSupport::TestCase
     assert_equal 2, Note.find_all_by_query("klingon").count
   end
 
+  test "should find a match on tags" do
+    test_note = Note.create(title: "elves are cool too",
+                            tag: "elvish",
+                            inputText: "Entula a' moinayamen' amin autien rath Saurarea Ya? Caela ie'lle Tel'Domeduathea lle quel andune. Tyela neuma lle lakwenien Yaaraerea goth en gothamin. Lle vesta Nikerym Ita'istar saesa omentien lle.Nenime uuner uma, n'dela no'ta manka lle merna elea i'dolen. Tanya awra! Iire uuner uma, n'dela no'ta tanya nae sai eina. Aa' menle nauva calen ar' ta hwesta e' ale'quenle Saurarea lle naa haran e' nausalle N'hrive. Nandaror Dina asca melloneamin Viresse.")
+    assert_equal test_note, Note.find_all_by_query("elvish").first
+  end
+
+  test "should find a match on inputText" do
+    test_note = Note.create(title: "elves are cool too",
+                            tag: "elvish",
+                            inputText: "Entula a' moinayamen' amin autien rath Saurarea Ya? Caela ie'lle Tel'Domeduathea lle quel andune. Tyela neuma lle lakwenien Yaaraerea goth en gothamin. Lle vesta Nikerym Ita'istar saesa omentien lle.Nenime uuner uma, n'dela no'ta manka lle merna elea i'dolen. Tanya awra! Iire uuner uma, n'dela no'ta tanya nae sai eina. Aa' menle nauva calen ar' ta hwesta e' ale'quenle Saurarea lle naa haran e' nausalle N'hrive. Nandaror Dina asca melloneamin Viresse.")
+    assert_equal test_note, Note.find_all_by_query("ta").first
+  end
+
+          
+
 end
