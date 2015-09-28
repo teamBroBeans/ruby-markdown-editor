@@ -4,7 +4,11 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+      if params[:q]
+          @notes = Note.find_all_by_query(params[:q])
+      else
+          @notes = Note.all
+      end
   end
 
   # GET /notes/1
