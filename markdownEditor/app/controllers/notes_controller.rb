@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /notes
   # GET /notes.json
   def index
@@ -10,6 +10,7 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
+    @note.tag = @note.get_all_tags
   end
 
   # GET /notes/new
@@ -19,6 +20,7 @@ class NotesController < ApplicationController
 
   # GET /notes/1/edit
   def edit
+    @note.tag = @note.get_all_tags
   end
 
   # POST /notes
@@ -29,6 +31,7 @@ class NotesController < ApplicationController
     respond_to do |format|
 
       if @note.save
+        @note.set_all_tags
         format.html { render :edit}
         flash[:notice] = "Note successfully created"
         format.html { redirect_to @note, notice: 'Note was successfully created.' }
@@ -45,6 +48,7 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
+          @note.set_all_tags
           format.html { render :edit}
           flash[:notice] = "Note successfully updated"
           format.json { render :show, status: :ok, location: @note }
@@ -70,7 +74,7 @@ class NotesController < ApplicationController
     def set_note
       @note = Note.find(params[:id])
     end
-
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
       params.require(:note).permit(:title, :tag, :inputText)
