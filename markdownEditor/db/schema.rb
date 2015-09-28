@@ -11,17 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925172409) do
-
-  create_table "note_tags", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "note_id"
-    t.integer  "tag_id"
-  end
-
-  add_index "note_tags", ["note_id"], name: "index_note_tags_on_note_id"
-  add_index "note_tags", ["tag_id"], name: "index_note_tags_on_tag_id"
+ActiveRecord::Schema.define(version: 20150928180652) do
 
   create_table "notes", force: :cascade do |t|
     t.string   "title"
@@ -30,6 +20,16 @@ ActiveRecord::Schema.define(version: 20150925172409) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "notes_tags", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "note_id"
+    t.integer  "tag_id"
+  end
+
+  add_index "notes_tags", ["note_id"], name: "index_notes_tags_on_note_id"
+  add_index "notes_tags", ["tag_id"], name: "index_notes_tags_on_tag_id"
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
