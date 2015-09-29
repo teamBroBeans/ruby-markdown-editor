@@ -3,7 +3,23 @@
 groceries:
   id: 1
   name: groceries
+  created_at: DateTime.parse('2001-12-10')
+  updated_at: DateTime.parse('2001-12-11')
 
 gifts:
   id: 2
   name: gifts
+  created_at: DateTime.parse('2001-12-10')
+  updated_at: DateTime.parse('2001-12-11')
+
+note:
+  id: 3
+  name: note
+  created_at: DateTime.parse('2001-12-10')
+  updated_at: DateTime.parse('2001-12-11')
+
+ideas:
+  id: 4
+  name: ideas
+  created_at: DateTime.parse('2001-12-10')
+  updated_at: DateTime.parse('2001-12-11')

@@ -5,11 +5,9 @@ christmasNote:
   title: Things to buy Johnny
   tag: gifts
   inputText: I have no ideas.
-  tags: gifts
 
 stickyNote:
   id: 2
   title: Get the milk
   tag: groceries
   inputText: Go to Gordys
-  tags: groceries
