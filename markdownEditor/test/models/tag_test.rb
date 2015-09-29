@@ -13,4 +13,11 @@ class TagTest < ActiveSupport::TestCase
     assert tag.errors[:name].include?("can't be blank")
   end
   
+  test "should not save if tag already exists" do
+    tag = Tag.new(name: "Tag")
+    assert tag.save
+    
+    tag2 = Tag.new(name: "Tag")
+    assert !tag2.save
+  end
 end
