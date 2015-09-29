@@ -4,7 +4,6 @@ class Note < ActiveRecord::Base
     has_many :note_tags
     has_many :tags, :through => :note_tags
 
-<<<<<<< HEAD
     # Create tags from :tag
     def set_all_tags
         self.tags = tag.split(",").map do |name|
@@ -16,16 +15,14 @@ class Note < ActiveRecord::Base
     def get_all_tags
         self.tags.map(&:name).join(", ")
     end
-=======
-  def self.find_all_by_query(query)
-    query = query.downcase
-    query = "%#{query}%"
     
-    Note.where(['lower(title) like ?
-               OR lower(tag) like ?
-               OR lower(inputText) like ?',
-               query, query, query])
-  end
-
->>>>>>> master
+    def self.find_all_by_query(query)
+        query = query.downcase
+        query = "%#{query}%"
+        
+        Note.where(['lower(title) like ?
+                   OR lower(tag) like ?
+                   OR lower(inputText) like ?',
+                   query, query, query])
+    end
 end
