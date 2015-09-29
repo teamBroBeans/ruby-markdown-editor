@@ -13,5 +13,6 @@ class NotesTagTest < ActiveSupport::TestCase
     noteTag = NotesTag.new
     
     assert !noteTag.save
+    assert noteTag.errors[:tag_id].include?("can't be blank")
   end
 end
