@@ -10,6 +10,7 @@ class TagTest < ActiveSupport::TestCase
   test "should not save unless name filled in" do
     tag = Tag.new
     assert !tag.save
+    assert tag.errors[:name].include?("can't be blank")
   end
   
 end
