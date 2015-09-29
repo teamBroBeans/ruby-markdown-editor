@@ -6,4 +6,10 @@ class TagTest < ActiveSupport::TestCase
     tag.name = "Test Tag"
     assert tag.save
   end
+  
+  test "should not save unless name filled in" do
+    tag = Tag.new
+    assert !tag.save
+  end
+  
 end
