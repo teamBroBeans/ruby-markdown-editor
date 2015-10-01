@@ -67,4 +67,8 @@ class NoteTest < ActiveSupport::TestCase
     assert_equal test_note, Note.find_all_by_query("ta").first
   end
 
+  test "should be inTrashcan" do
+    
+  end
+
 end
