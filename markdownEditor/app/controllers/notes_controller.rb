@@ -36,9 +36,8 @@ class NotesController < ApplicationController
 
       if @note.save
         @note.set_all_tags
-        format.html { render :edit}
         flash[:notice] = "Note successfully created"
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
+        format.html { redirect_to edit_note_path(@note), notice: 'Note was successfully created.' }
         format.json { render :show, status: :created, location: @note }
       else
         format.html { render :new }
@@ -53,7 +52,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       if @note.update(note_params)
           @note.set_all_tags
-          format.html { render :edit}
+          format.html { redirect_to edit_note_path(@note), notice: "Note was updated successfully."}
           flash[:notice] = "Note successfully updated"
           format.json { render :show, status: :ok, location: @note }
       else
