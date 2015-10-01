@@ -68,7 +68,12 @@ class NoteTest < ActiveSupport::TestCase
   end
 
   test "should be inTrashcan" do
+    test_note = Note.create(title: "TrashNote",
+                            tag: "Trash",
+                            inputText: "# Trash this note!")
+    test_note.inTrashcan = true
     
+    assert true, test_note.inTrashcan
   end
 
 end
