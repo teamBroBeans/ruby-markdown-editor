@@ -19,6 +19,19 @@
     <%= f.label :tag %><br>
     <%= f.text_field :tag %>
   </div>
+  
+  
+  
+    <script>
+    <=% ActsAsTaggableOn::Tag.all.map{|tag| tag.name}.to_json.html_safe %>
+    $("#tag").autocomplete({
+      multiple: true,
+      source: <%= @tags.html_safe %>
+    });
+    
+  </script>
+  
+  
   <div class="field">
     <%= f.label :Note %><br>
     <%= f.text_area :inputText, :cols => 150, :rows => 50 %>
