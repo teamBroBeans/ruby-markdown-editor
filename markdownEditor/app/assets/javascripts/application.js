@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require epiceditor
 //= require_tree .
+//= require jquery-ui
