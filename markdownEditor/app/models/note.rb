@@ -1,8 +1,13 @@
+# module ActsAsTaggableOn
+
 class Note < ActiveRecord::Base
     validates_presence_of :title, :tag, :inputText
     validates :title, length: { maximum: 250,too_long: "%{count} characters is the maximum allowed"}
     has_many :notes_tags
     has_many :tags, :through => :notes_tags
+    
+    # ActsAsTaggableOn::Tag.all.map{|tag| tag.name}.to_json.html_safe
+
 
     # Create tags from :tag
     def set_all_tags
@@ -26,3 +31,4 @@ class Note < ActiveRecord::Base
                    query, query, query])
     end
 end
+# end
