@@ -21,6 +21,13 @@ class NotesController < ApplicationController
   def share
     slug = params[:id]
     @note= Note.find_by_slug(slug)
+   
+    @note.share
+    if @note.save
+        redirect_to edit_note_path(@note), notice: "Shared note."
+        else
+        render :edit
+    end
   end
 
 # GET /notes/new
