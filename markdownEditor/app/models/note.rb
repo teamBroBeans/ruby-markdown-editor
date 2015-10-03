@@ -26,4 +26,12 @@ class Note < ActiveRecord::Base
                    OR lower(inputText) like ?',
                    query, query, query])
     end
+
+    def share
+        self.slug = SecureRandom.urlsafe_base64
+    end
+
+    def unshare
+        self.slug = nil
+    end
 end
