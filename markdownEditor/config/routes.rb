@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :notes do
       member do
-          put: share
+          put :share
       end
   end
   
