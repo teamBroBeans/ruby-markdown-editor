@@ -6,8 +6,8 @@ class Note < ActiveRecord::Base
 
     # Create tags from :tag
     def set_all_tags
-        self.tags = tag.split(",").map do |name|
-            Tag.where(name: name).first_or_create!
+        self.tags = tag.split(", ").map do |name|
+            Tag.where(name: name.strip).first_or_create!
         end
     end
     
