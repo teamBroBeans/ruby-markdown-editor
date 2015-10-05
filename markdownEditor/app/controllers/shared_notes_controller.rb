@@ -5,5 +5,6 @@ class SharedNotesController < ApplicationController
         render :show
       else
         redirect_to root_url, notice: "That note does not exist"
-  end
+      end
+    end
 end
