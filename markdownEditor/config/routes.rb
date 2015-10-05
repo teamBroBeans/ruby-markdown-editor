@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :notes
+ get "/shared_notes/:slug" => "shared_notes#show"
+
+  resources :notes do
+      member do
+          put :share
+      end
+  end
+  
   get "home/textEditor"
   root controller: 'notes', action: 'index'
   # The priority is based upon order of creation: first created -> highest priority.
