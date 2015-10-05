@@ -81,3 +81,9 @@ li:hover {
 .ui-helper-hidden-accessible{
   display: none;
 }
+
+#preview {
+  height: 400px;
+  overflow: scroll;
+  margin-left: 5px;
+}
