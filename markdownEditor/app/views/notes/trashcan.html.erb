@@ -1,0 +1,25 @@
+<h1>Listing Trashcan items</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Tag</th>
+      <th>Note Created</th>
+      <th>Last Update</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notes.each do |note| %>
+      <tr>
+        <td><%= link_to note.title, note %></td>
+        <td><%= note.tag %></td>
+        <td><%= note.created_at.to_formatted_s(:long_ordinal) %></td>
+				<td><%= time_ago_in_words(note.updated_at) %> ago</td>
+        <td><%= link_to 'Delete', note, method: :delete, data: { confirm: 'Are
+         you sure?' } %></td>
+      </tr>
+      <% end %>
+  	</tbody>
+</table>
