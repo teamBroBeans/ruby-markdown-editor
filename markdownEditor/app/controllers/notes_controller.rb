@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
-  before_action :get_tags, only: [ :new, :edit, :create, :update]
+  before_action :get_tags, only: [:show, :new, :edit, :create, :update]
   
   def get_tags 
     @tags = Tag.pluck(:name).map{|t| t}.to_json
@@ -23,7 +23,6 @@ class NotesController < ApplicationController
   # GET /notes/1.json
   def show
     @note.tag = @note.get_all_tags
-    # @note.tag.map{|tag| tag.name}.to_json.html_safe
   end
 
   # GET /notes/new
