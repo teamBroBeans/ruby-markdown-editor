@@ -1,10 +1,13 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
-  before_action :get_tags, only: [:new, :edit, :create, :update]
+  before_action :get_tags, only: [ :new, :edit, :create, :update]
   
   def get_tags 
-    @tags = ActsAsTaggableOn::Tag.all.map{|t| t.name}.to_json
+    @tags = Tag.pluck(:name).map{|t| t}.to_json
+
   end
+  
+
   
   # GET /notes
   # GET /notes.json
