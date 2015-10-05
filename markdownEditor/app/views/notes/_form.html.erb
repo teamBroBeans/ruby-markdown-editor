@@ -15,9 +15,9 @@
     <%= f.label :title %><br>
     <%= f.text_field :title, :maxlength => 250, :size=> 40 %>
   </div>
-  <div class="ui-widget">
+  <div class="field">
     <%= f.label :tag %><br>
-    <%= f.text_field :tag, value: @note.tag.to_s %>
+    <%= f.text_field :tag, value: @note.tag %>
   </div>
   
   
@@ -92,9 +92,19 @@
   
     var editor = new EpicEditor(options).load();
 
+    var options = {
+      container: 'preview',
+      autogrow: {
+        minHeight: 400,
+        maxHeight: false,
+        scroll: true
+      }
+    }
     editor.on('update', function(){
       document.querySelector('#preview').innerHTML = this.exportFile(null, 'html');
     }).emit('update');
+    
+
   </script>
   
   <div class="actions">
