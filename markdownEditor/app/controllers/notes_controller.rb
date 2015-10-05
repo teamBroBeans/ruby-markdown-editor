@@ -19,10 +19,9 @@ class NotesController < ApplicationController
 #  end
 
   def share
-
     @note.share
     if @note.save
-        redirect_to edit_note_path(@note), notice: "Shared note. slug = " + @note.slug
+        redirect_to edit_note_path(@note), notice: "Shared note."
         else
         render :edit
     end
