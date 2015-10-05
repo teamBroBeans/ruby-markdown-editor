@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- get "/shared_notes/:id" => "shared_notes#show"
+ get "/shared_notes/:slug" => "shared_notes#show"
 
   resources :notes do
       member do
