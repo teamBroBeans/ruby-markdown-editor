@@ -77,3 +77,7 @@ li {
 li:hover {
   background-color: #00cccc;
 }
+
+.ui-helper-hidden-accessible{
+  display: none;
+}
