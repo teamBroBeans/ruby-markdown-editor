@@ -75,5 +75,21 @@ class NoteTest < ActiveSupport::TestCase
     
     assert true, test_note.inTrashcan
   end
-
+  
+  test "3 notes should be inTrashcan" do
+    note1 = Note.create(title: "TrashNote1",
+                            tag: "Trash",
+                            inputText: "# Trash this note!")
+    note2 = Note.create(title: "TrashNote2",
+                            tag: "Trash",
+                            inputText: "# Trash this note!")
+    note3 = Note.create(title: "TrashNote3",
+                            tag: "Trash",
+                            inputText: "# Trash this note!")
+    note1.inTrashcan = true
+    note2.inTrashcan = true
+    note3.inTrashcan = true
+    
+    assert 3, Note.where("inTrashcan").count
+  end
 end
