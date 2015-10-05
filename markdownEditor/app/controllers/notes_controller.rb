@@ -10,6 +10,11 @@ class NotesController < ApplicationController
           @notes = Note.all
       end
   end
+  
+  # GET /notes/trashcan
+  def trashcan
+    @notes = Note.where("inTrashcan")
+  end
 
   # GET /notes/1
   # GET /notes/1.json
