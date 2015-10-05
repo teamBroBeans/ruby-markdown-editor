@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :notes
   get "home/textEditor"
-  root controller: 'home', action: 'textEditor'
+  root controller: 'notes', action: 'index'
+  
+  resources :notes do 
+  get :autocomplete_tag_name, :on => :collection
+  end 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -56,4 +60,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end
