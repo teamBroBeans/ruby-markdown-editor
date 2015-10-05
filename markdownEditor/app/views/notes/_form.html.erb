@@ -85,21 +85,14 @@
       buttons: false,
       autogrow: {
         minHeight: 400,
-        maxHeight: false,
+        maxHeight: 400,
         scroll: true
       }
     }
   
     var editor = new EpicEditor(options).load();
 
-    var options = {
-      container: 'preview',
-      autogrow: {
-        minHeight: 400,
-        maxHeight: false,
-        scroll: true
-      }
-    }
+
     editor.on('update', function(){
       document.querySelector('#preview').innerHTML = this.exportFile(null, 'html');
     }).emit('update');
