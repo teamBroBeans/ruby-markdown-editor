@@ -7,13 +7,8 @@ class NotesController < ApplicationController
       if params[:q]
           @notes = Note.find_all_by_query(params[:q])
       else
-          @notes = Note.all
+          @notes = Note.where(inTrashcan: [false, nil])
       end
-  end
-  
-  # GET /notes/trashcan
-  def trashcan
-    @notes = Note.where("inTrashcan")
   end
 
   # GET /notes/1
