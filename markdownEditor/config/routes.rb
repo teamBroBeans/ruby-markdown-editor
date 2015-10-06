@@ -2,10 +2,16 @@ Rails.application.routes.draw do
   get 'trashcan' => "trashcan#index"
   get 'trashcan/create/:id' => "trashcan#create"
   get 'trashcan/delete/:id' => "trashcan#delete"
+  get "/shared_notes/:slug" => "shared_notes#show"
+
+  resources :notes do
+      member do
+          put :share
+      end
+  end
   
-  resources :notes
   get "home/textEditor"
-  root controller: 'home', action: 'textEditor'
+  root controller: 'notes', action: 'index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

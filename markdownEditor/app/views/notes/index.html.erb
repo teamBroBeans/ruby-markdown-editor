@@ -1,6 +1,7 @@
 
 <h1>Listing Notes</h1>
 <%= render "/shared/search" %>
+<%= link_to '<button type="button">New Note</button>'.html_safe, new_note_path %>
 
 <table>
   <thead>
@@ -16,7 +17,7 @@
   <tbody>
     <% @notes.each do |note| %>
       <tr>
-        <td><%= link_to note.title, note %></td>
+        <td><%= link_to note.title, edit_note_path(note) %></td>
         <td><%= note.tag %></td>
         <td><%= note.created_at.to_formatted_s(:long_ordinal) %></td>
 				<td><%= time_ago_in_words(note.updated_at) %> ago</td>
@@ -29,6 +30,6 @@
 
 <br>
 
-<%= link_to 'New Note', new_note_path %>
+
 
 

@@ -899,7 +899,7 @@
     });
 
     function utilBarHandler(e) {
-      if (self.settings.button.bar !== "auto") {
+      if (self.settings.button.bar == "auto") {
         return;
       }
       // Here we check if the mouse has moves more than 5px in any direction before triggering the mousemove code
@@ -915,9 +915,9 @@
         }
 
         // begin a new timer that hides our object after 1000 ms
-        utilBarTimer = window.setTimeout(function () {
+        utilBarTimer = function () {
           utilBar.style.display = 'none';
-        }, 1000);
+        };
       }
       mousePos = { y: e.pageY, x: e.pageX };
     }

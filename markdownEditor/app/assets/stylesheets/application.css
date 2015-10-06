@@ -58,3 +58,32 @@ table td {
 #save{
   display: center;
 }
+
+.ui-widget {
+    color: #222222;
+    border-radius: 0px;
+}
+
+ul {
+  list-style-type: none;
+  width: 60px;
+}
+
+li {
+  background-color: #cce5ff;
+  border: solid #CCFFFF 1px;
+}
+
+li:hover {
+  background-color: #00cccc;
+}
+
+.ui-helper-hidden-accessible{
+  display: none;
+}
+
+#preview {
+  height: 400px;
+  overflow: scroll;
+  margin-left: 5px;
+}

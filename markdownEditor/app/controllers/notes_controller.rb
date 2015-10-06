@@ -1,6 +1,11 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_note, only: [:share, :edit, :update, :destroy]
+  before_action :get_tags, only: [:share, :new, :edit, :create, :update]
   
+  def get_tags 
+    @tags = Tag.pluck(:name).map{|t| t}.to_json
+
+  end
   # GET /notes
   # GET /notes.json
   def index
@@ -13,11 +18,21 @@ class NotesController < ApplicationController
 
   # GET /notes/1
   # GET /notes/1.json
-  def show
-    @note.tag = @note.get_all_tags
+  #commenting out for now, assuming it will be deleted later
+#  def show
+#    @note.tag = @note.get_all_tags
+#  end
+
+  def share
+    @note.share
+    if @note.save
+        redirect_to edit_note_path(@note), notice: "Shared note."
+        else
+        render :edit
+    end
   end
 
-  # GET /notes/new
+# GET /notes/new
   def new
     @note = Note.new
   end

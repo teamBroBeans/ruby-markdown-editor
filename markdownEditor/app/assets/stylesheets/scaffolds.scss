@@ -63,11 +63,14 @@ div {
     margin: -7px;
     margin-bottom: 0px;
     background-color: #c00;
-    color: #fff;
+    color: black;
   }
 
   ul li {
     font-size: 12px;
     list-style: square;
+    color: black;
+    background-color: #f0f0f0;
+    border: none;
   }
 }

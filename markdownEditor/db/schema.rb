@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001172920) do
+ActiveRecord::Schema.define(version: 20151004153738) do
 
   create_table "notes", force: :cascade do |t|
     t.string   "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20151001172920) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean  "inTrashcan"
+    t.string   "slug"
   end
 
   create_table "notes_tags", force: :cascade do |t|
