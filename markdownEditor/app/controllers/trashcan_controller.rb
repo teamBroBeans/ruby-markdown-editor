@@ -19,4 +19,12 @@ class TrashcanController < ApplicationController
     
     redirect_to trashcan_url
   end
+  
+  def undo
+    @note = Note.find(params[:id])
+    @note.inTrashcan = false
+    @note.save
+    
+    redirect_to trashcan_url
+  end
 end
