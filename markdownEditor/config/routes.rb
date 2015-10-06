@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  get "notes/trashcan" => "notes#trashcan"
+  get 'trashcan' => "trashcan#index"
+  get 'trashcan/create/:id' => "trashcan#create"
+  get 'trashcan/delete/:id' => "trashcan#delete"
+  
   resources :notes
   get "home/textEditor"
   root controller: 'home', action: 'textEditor'
