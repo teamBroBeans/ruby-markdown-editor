@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20151004153738) do
     t.string   "inputText"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "inTrashcan"
     t.string   "slug"
   end
 
