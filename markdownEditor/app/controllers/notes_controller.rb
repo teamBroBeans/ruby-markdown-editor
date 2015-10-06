@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:share, :edit, :update, :destroy]
   before_action :get_tags, only: [:share, :new, :edit, :create, :update]
-  
+
   def get_tags 
     @tags = Tag.pluck(:name).map{|t| t}.to_json
 
