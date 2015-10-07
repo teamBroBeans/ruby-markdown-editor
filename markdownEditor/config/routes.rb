@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'trashcan/create/:id' => "trashcan#create"
   get 'trashcan/delete/:id' => "trashcan#delete"
   get 'trashcan/undo/:id' => "trashcan#undo"
+  get 'trashcan/deleteall' => 'trashcan#deleteall'
   
   get "/shared_notes/:slug" => "shared_notes#show"
 

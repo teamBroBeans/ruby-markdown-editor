@@ -20,6 +20,15 @@ class TrashcanController < ApplicationController
     redirect_to trashcan_url
   end
   
+  def deleteall
+    @notes = Note.where(:inTrashcan => true)
+    @notes.each do |note|
+      note.destroy
+    end
+    
+    redirect_to trashcan_url
+  end
+  
   def undo
     @note = Note.find(params[:id])
     @note.inTrashcan = false
