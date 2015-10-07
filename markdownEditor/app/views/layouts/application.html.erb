@@ -8,10 +8,10 @@
 </head>
 <body>
   <nav>
-        <%=link_to 'home', home_textEditor_path %>
-
-    <%=link_to 'notes', notes_path %>
-    <%=link_to 'trashcan', controller: trashcan_path %>
+    <%=link_to 'Home', home_textEditor_path %>
+    <%=link_to 'Notes', notes_path %>
+    <%=link_to 'Trashcan', controller: trashcan_path %>
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
      
      <% if flash[:notice] %>
    		<p id="notice"><%= notice %></p>
