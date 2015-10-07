@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     devise_for :users do
     get "/login" => "devise/sessions#new"
     get "/register" => "devise/registrations#new"
+    get "/logout" => "devise/registrations#cancel"
   end
   root controller: 'notes', action: 'index'
   # The priority is based upon order of creation: first created -> highest priority.
