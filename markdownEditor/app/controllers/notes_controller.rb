@@ -1,7 +1,15 @@
 class NotesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_note, only: [:share, :edit, :update, :destroy]
   before_action :get_tags, only: [:share, :new, :edit, :create, :update]
-  
+
+  # def 
+  #   if user_signed_in? 
+  #     current_user.email
+  # end
+  #   current_user.email
+  # end
+
   def get_tags 
     @tags = Tag.pluck(:name).map{|t| t}.to_json
 
@@ -15,6 +23,7 @@ class NotesController < ApplicationController
           @notes = Note.where(inTrashcan: [false, nil])
       end
   end
+
 
   # GET /notes/1
   # GET /notes/1.json
@@ -31,10 +40,13 @@ class NotesController < ApplicationController
         render :edit
     end
   end
+# @article = current_user.articles.new(article_params)
 
 # GET /notes/new
   def new
-    @note = Note.new
+    # @note = current_user.notes.new
+        @note = Note.new
+
   end
 
   # GET /notes/1/edit
