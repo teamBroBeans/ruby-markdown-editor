@@ -46,3 +46,7 @@ group :development, :test do
 end
 
 gem 'devise'
+
+group :development, :test do
+ gem 'foreman'
+end
