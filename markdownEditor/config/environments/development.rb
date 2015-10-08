@@ -63,8 +63,8 @@ config.action_mailer.smtp_settings = {
     domain: ENV["GMAIL_DOMAIN"],
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    user_name: 'teambrobeans@gmail.com',
+    password: 'brobeans1!'
 }
 
 
