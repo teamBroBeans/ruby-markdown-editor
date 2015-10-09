@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151006152945) do
+ActiveRecord::Schema.define(version: 20151009164946) do
 
   create_table "notes", force: :cascade do |t|
     t.string   "title"
     t.string   "tag"
     t.string   "inputText"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean  "inTrashcan"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "inTrashcan", default: false, null: false
     t.string   "slug"
   end
 
