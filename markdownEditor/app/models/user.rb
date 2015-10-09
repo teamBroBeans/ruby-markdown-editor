@@ -4,4 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          has_many :notes
+         
+        # attr_reader :id
+        
+    def current_user?(user)
+     user ==current_user
+    end
 end

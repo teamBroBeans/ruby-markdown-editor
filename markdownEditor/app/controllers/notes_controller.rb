@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :authenticate_user!
+  before_filter :authenticate_user!
   before_action :set_note, only: [:share, :edit, :update, :destroy]
   before_action :get_tags, only: [:share, :new, :edit, :create, :update]
 
@@ -16,13 +16,37 @@ class NotesController < ApplicationController
   end
   # GET /notes
   # GET /notes.json
+  # def index
+
+  #     if params[:q]
+  #               @notes = Note.where(user_id:current_user.id)
+
+  #         @notes = Note.find_all_by_query(params[:q])
+  #     else
+  #         @notes = Note.where(inTrashcan: [false, nil])
+  #     end
+  # end
+  
   def index
+    
+    if current_user
+    @notes = current_user.notes
+    @note = current_user.notes.new
       if params[:q]
-          @notes = Note.find_all_by_query(params[:q])
+        # @notes = Note.where(user_id:current_user.id)
+
+        @notes = Note.find_all_by_query(params[:q])
       else
           @notes = Note.where(inTrashcan: [false, nil])
       end
+    else
+    redirect_to new_user_session_path, notice: 'You are not logged in.'
+    end
   end
+
+
+      
+  # end
 
 
   # GET /notes/1
@@ -40,13 +64,14 @@ class NotesController < ApplicationController
         render :edit
     end
   end
-# @article = current_user.articles.new(article_params)
+# @note = current_user.notes.new(article_params)
 
 # GET /notes/new
   def new
-    # @note = current_user.notes.new
-        @note = Note.new
-
+    # if current_user
+      @note = current_user.notes.new
+      # @note = Note.new
+    # end
   end
 
   # GET /notes/1/edit
@@ -57,8 +82,8 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
-    @note = Note.new(note_params)
-
+    # @note = Note.new(note_params)
+    @note = current_user.notes.new(note_params)
     respond_to do |format|
 
       if @note.save
@@ -72,6 +97,8 @@ class NotesController < ApplicationController
       end
     end
   end
+  
+  
 
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json

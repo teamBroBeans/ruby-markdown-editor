@@ -8,4 +8,7 @@ class ApplicationController < ActionController::Base
   #   current_user.email
   #   end
   # end
+  def logged_in?
+    session[:logged_in]
+  end
 end

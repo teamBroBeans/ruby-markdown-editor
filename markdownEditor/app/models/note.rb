@@ -4,7 +4,7 @@ class Note < ActiveRecord::Base
     validates :title, length: { maximum: 250,too_long: "%{count} characters is the maximum allowed"}
     has_many :notes_tags
     has_many :tags, :through => :notes_tags
-
+    belongs_to :user
     # Create tags from :tag
     def set_all_tags
         self.tags = tag.split(", ").map do |name|
@@ -30,6 +30,7 @@ class Note < ActiveRecord::Base
     def share
         self.slug = SecureRandom.urlsafe_base64
     end
+    
 
     def unshare
         self.slug = nil
