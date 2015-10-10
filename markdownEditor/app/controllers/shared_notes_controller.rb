@@ -1,6 +1,6 @@
 class SharedNotesController < ApplicationController
   def show
-      @note = Note.find_by_slug @note
+      @note = Note.where(slug: params[:slug])
       if @note
         render :show
       else
