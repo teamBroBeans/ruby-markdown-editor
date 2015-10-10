@@ -17,7 +17,7 @@ class TrashcanController < ApplicationController
     
     @note.destroy
     
-    redirect_to trashcan_url
+    redirect_to trashcan_url, notice: "Your note #{note.title} was successfully deleted"
   end
   
   def deleteall
@@ -26,7 +26,7 @@ class TrashcanController < ApplicationController
       note.destroy
     end
     
-    redirect_to trashcan_url
+    redirect_to trashcan_url, notice: "All notes successfully deleted from trash can"
   end
   
   def undo
