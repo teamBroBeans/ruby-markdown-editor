@@ -34,6 +34,6 @@ class TrashcanController < ApplicationController
     @note.inTrashcan = false
     @note.save
     
-    redirect_to trashcan_url
+    redirect_to trashcan_url, notice: "Your note was successfully removed from the trash can."
   end
 end
