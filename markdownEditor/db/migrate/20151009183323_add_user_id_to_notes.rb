@@ -1,5 +1,5 @@
 class AddUserIdToNotes < ActiveRecord::Migration
   def change
-    add_reference(:notes, :user, foreign_key: true, index: true)
+    add_column :notes, :user_id, :int
   end
 end

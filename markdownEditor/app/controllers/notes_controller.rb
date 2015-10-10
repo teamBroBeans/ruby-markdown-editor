@@ -31,7 +31,6 @@ class NotesController < ApplicationController
     
     if current_user
     @notes = current_user.notes
-    @note = current_user.notes.new
       if params[:q]
         # @notes = Note.where(user_id:current_user.id)
 
@@ -83,7 +82,7 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     # @note = Note.new(note_params)
-    @note = current_user.notes.new(note_params)
+    @note = current_user.notes.build(note_params)
     respond_to do |format|
 
       if @note.save
