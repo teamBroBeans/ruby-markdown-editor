@@ -67,12 +67,7 @@ class NoteTest < ActiveSupport::TestCase
     assert_equal test_note, Note.find_all_by_query("ta").first
   end
 
-#  test "should not find a match, because not is in trash"
-#    test_note = Note.create(title: "elves are cool too",
-#                        tag: "elvish",
-#                        inputText: "Entula a' moinayamen' amin autien rath Saurarea Ya? Caela ie'lle Tel'Domeduathea lle quel andune. Tyela neuma lle lakwenien Yaaraerea goth en gothamin. Lle vesta Nikerym Ita'istar saesa omentien lle.Nenime uuner uma, n'dela no'ta manka lle merna elea i'dolen. Tanya awra! Iire uuner uma, n'dela no'ta tanya nae sai eina. Aa' menle nauva calen ar' ta hwesta e' ale'quenle Saurarea lle naa haran e' nausalle N'hrive. Nandaror Dina asca melloneamin Viresse.")
-#                        test_note.inTrashcan = true
-#!assert_equal test_note, Note.find_all_by_query("ta").first
+
 
   test "should be inTrashcan" do
     test_note = Note.create(title: "TrashNote",
