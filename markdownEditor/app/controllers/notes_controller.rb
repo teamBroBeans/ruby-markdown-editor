@@ -44,7 +44,7 @@ class NotesController < ApplicationController
 def unshare
     @note.unshare
     @note.save
-    redirect_to edit_note_path(@note), notice: 'Note was successfully unshared.'
+    redirect_to edit_note_path(@note), notice: "Note was unshared."
 end
 
 # @article = current_user.articles.new(article_params)
