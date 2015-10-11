@@ -1,10 +1,20 @@
 class SharedNotesController < ApplicationController
+     before_action :set_note, only: [:show]
   def show
-      @note = Note.where(slug: params[:slug])
+      
       if @note
-        render :show
+          
+        render :show, :layout => nil
       else
         redirect_to root_url, notice: "That note does not exist"
       end
     end
+  
+  def set_note
+      @note = Note.find_by(slug: params[:slug])
+  end
+  
+  def note_params
+      params.require(:note).permit(:title, :tag, :inputtext)
+  end
 end
