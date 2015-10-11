@@ -30,16 +30,24 @@ class NotesController < ApplicationController
   def index
     
     if current_user
-    @notes = current_user.notes
-      if params[:q]
-        # @notes = Note.where(user_id:current_user.id)
 
-        @notes = Note.find_all_by_query(params[:q])
+      # @notes = current_user.notes
+      # @notes = Note.where(current_user: [id])
+        @notes = Note.where(user_id: [current_user])
+
+      if params[:id]
+      # if params[:q]
+        # @notes = Note.find_all_by_query(params[:q])
+        @notes = Note.find_all_by_query(params[:current_user])
+        # @notes = Note.where(params[:id])
+        # @notes = Note.where(user_id: [current_user])
+
+
       else
           @notes = Note.where(inTrashcan: [false, nil])
       end
     else
-    redirect_to new_user_session_path, notice: 'You are not logged in.'
+      redirect_to new_user_session_path, notice: 'You are not logged in.'
     end
   end
 
@@ -128,7 +136,8 @@ class NotesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
-      @note = Note.find(params[:id])
+      # @note = Note.find(params[:id])
+      @note = current_user.notes.find(params[:id])
     end
     
     # Never trust parameters from the scary internet, only allow the white list through.
