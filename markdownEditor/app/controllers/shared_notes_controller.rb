@@ -1,10 +1,10 @@
 class SharedNotesController < ApplicationController
      before_action :set_note, only: [:show]
+#     before_action :authenticate_user!, :except => [:show]
   def show
       
       if @note
-          
-        render :show, :layout => nil
+          render :show, :layout => nil
       else
         redirect_to root_url, notice: "That note does not exist"
       end

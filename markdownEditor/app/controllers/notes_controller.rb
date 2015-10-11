@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_note, only: [:share, :edit, :update, :destroy]
-  before_action :get_tags, only: [:share, :new, :edit, :create, :update]
+  before_action :set_note, only: [:share, :unshare, :edit, :update, :destroy]
+  before_action :get_tags, only: [:share, :unshare, :new, :edit, :create, :update]
 
   # def 
   #   if user_signed_in? 
@@ -40,6 +40,13 @@ class NotesController < ApplicationController
         render :edit
     end
   end
+  
+def unshare
+    @note.unshare
+    @note.save
+    redirect_to edit_note_path(@note), notice: 'Note was successfully unshared.'
+end
+
 # @article = current_user.articles.new(article_params)
 
 # GET /notes/new

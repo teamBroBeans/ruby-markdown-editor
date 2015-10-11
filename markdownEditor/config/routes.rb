@@ -21,6 +21,12 @@ Rails.application.routes.draw do
       end
   end
   
+  resources :notes do
+      member do
+          put 'unshare'
+      end
+  end
+  
   get "home/textEditor"
   
     devise_for :users do
