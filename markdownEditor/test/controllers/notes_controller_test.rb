@@ -55,10 +55,15 @@ class NotesControllerTest < ActionController::TestCase
   #   note = Note.new
   #   assert !note.save, "Saved the post "
   # end
+  test "should sign in" do
   sign_in users(:joe)
+  assert_response :success
+  end
   
+  test "should sign out" do
   sign_out users(:joe)
-
+  assert_response :success
+  end
     assert_redirected_to notes_path
   end
 end
