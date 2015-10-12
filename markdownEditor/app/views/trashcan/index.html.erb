@@ -17,9 +17,17 @@
         <td><%= note.tag %></td>
         <td><%= note.created_at.to_formatted_s(:long_ordinal) %></td>
 				<td><%= time_ago_in_words(note.updated_at) %> ago</td>
-        <td><%= link_to 'Delete', :controller => :trashcan, :action => :delete, :id => note.id, data: { confirm: 'Are
-         you sure?' } %></td>
-         <td><%= link_to 'Undo', :controller => :trashcan, :action => :undo, :id => note.id %></td>
+        <td>
+          <%= link_to trashcan_undo_path(:id => note.id), class: 'btn btn-warning' do %>
+            <i class="glyphicon glyphicon-ban-circle"></i> Undo
+          <% end %>
+        </td>
+        <td>
+          <%= link_to trashcan_delete_path(:id => note.id), class: 'btn btn-danger', 
+          data: { confirm: 'Are you sure?' } do %>
+            <i class="glyphicon glyphicon-trash"></i> Delete
+          <% end %>
+        </td>
       </tr>
       <% end %>
   	</tbody>
