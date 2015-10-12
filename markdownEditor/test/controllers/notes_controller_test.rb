@@ -4,6 +4,13 @@ class NotesControllerTest < ActionController::TestCase
   setup do
     @note = notes(:one)
   end
+  
+  
+  # def test_should_get_index
+  #   get :index
+  #   assert_response :success
+  #   assert_not_nil assigns(:notes)
+  # end
 
   test "should get index" do
     get :index
@@ -43,6 +50,14 @@ class NotesControllerTest < ActionController::TestCase
     assert_difference('Note.count', -1) do
       delete :destroy, id: @note
     end
+    
+  # def test_should_not_save_note_without_title
+  #   note = Note.new
+  #   assert !note.save, "Saved the post "
+  # end
+  sign_in users(:joe)
+  
+  sign_out users(:joe)
 
     assert_redirected_to notes_path
   end
