@@ -1,8 +1,8 @@
 <h1>Editing Note</h1>
 
 <% if @note.slug.present? %>
-	<p> Note has been Shared. The url for the shared note is: <br>
-	<%=url_for share_note_url(@note.slug)%> </p>
+	<div id="shareNote"><p> Note has been Shared. The url for the shared note is: <br>
+	<div id="urlShareNote"><%=url_for share_note_url(@note.slug)%></div> </p></div>
 	<% else %>
 	<%= button_to "Share", share_note_path(@note), method: :put, :id => "shareButton"%>
 	
