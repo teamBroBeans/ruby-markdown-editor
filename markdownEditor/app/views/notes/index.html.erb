@@ -1,9 +1,11 @@
 
 <h1>Listing Notes</h1>
 <%= render "/shared/search" %>
-<%= link_to '<button type="button">New Note</button>'.html_safe, new_note_path %>
+<%= link_to new_note_path, class: 'btn btn-default' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Note
+<% end %>
 
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Title</th>
