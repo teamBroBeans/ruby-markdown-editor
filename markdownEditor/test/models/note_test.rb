@@ -67,11 +67,11 @@ class NoteTest < ActiveSupport::TestCase
     assert_equal test_note, Note.find_all_by_query("ta").first
   end
 
-  test "should not find non-alphanumeric char's with search"
-test_note = Note.create(title: "#%& aplphanumeric char's",
-                        tag: '#$%',
-                        inputText: "#special# *cant find")
-   assert_equal test_note !Note.find_all_by_query("#%&")
+#test "should not find non-alphanumeric char's with search" # This test should fail!
+#    alphanumericNote = Note.create(title: "#%& aplphanumeric char's",
+#                        tag: "#$%",
+#                        inputText: "#special# *cant find")
+#   assert_equal, Note.find_all_by_query("#%&")
 
   test "should be inTrashcan" do
     test_note = Note.create(title: "TrashNote",
