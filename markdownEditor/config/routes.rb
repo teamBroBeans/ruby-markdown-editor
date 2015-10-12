@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'trashcan' => "trashcan#index"
-  get 'trashcan/create/:id' => "trashcan#create"
+  get 'trashcan/create/:id' => "trashcan#create", :as => :trashcan_create
   get 'trashcan/delete/:id' => "trashcan#delete"
   get 'trashcan/undo/:id' => "trashcan#undo"
   
