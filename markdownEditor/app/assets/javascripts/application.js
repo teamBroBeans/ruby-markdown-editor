@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require epiceditor
+//= require bootstrap-sprockets
 //= require_tree .
 //= require jquery-ui
