@@ -1,4 +1,7 @@
 <%= form_tag notes_url, method: :get do %>
 <label for="query">Search Notes: </label>
-<input type="search" id="query" name="q" value="<%= params[:q] %>"> <input type="submit" value="Search">
+<input type="search" id="query" name="q" value="<%= params[:q] %>">
+<button type="submit" class="btn btn-default">
+	<i class="glyphicon glyphicon-search"></i> Search
+</button>
 <% end %>
