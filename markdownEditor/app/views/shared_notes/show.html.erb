@@ -1,2 +1,22 @@
-<h1>SharedNotes#show</h1>
-<p>Find me in app/views/shared_notes/show.html.erb</p>
+
+<%= hidden_field_tag('note_inputText', @note.inputText) %>
+
+<div id="epiceditor"></div>
+<%= javascript_include_tag "epiceditor.js" %>
+<script>
+  var options = {
+    container: 'epiceditor',
+    textarea: 'note_inputText',
+    clientSideStorage: false,
+    buttons: false,
+    autogrow: true
+  }
+
+  var editor = new EpicEditor(options);
+
+  editor.on('load', function(){
+    this.preview();
+  });
+  
+  editor.load();
+</script>

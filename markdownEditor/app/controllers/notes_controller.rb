@@ -83,7 +83,7 @@ class NotesController < ApplicationController
       end
     end
   end
-
+  
   # DELETE /notes/1
   # DELETE /notes/1.json
   def destroy
