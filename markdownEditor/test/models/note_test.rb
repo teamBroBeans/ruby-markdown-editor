@@ -68,7 +68,6 @@ class NoteTest < ActiveSupport::TestCase
   end
 
 
-
   test "should be inTrashcan" do
     test_note = Note.create(title: "TrashNote",
                             tag: "Trash",
