@@ -20,12 +20,9 @@ class Note < ActiveRecord::Base
     def self.find_all_by_query(query)
         query = query.downcase
         query = "%#{query}%"
-        query = query.gsub!(/\W/,'')
-        
 
-        Note.where(inTrashcan: false).where(['lower(title) like ?
-                                        OR lower(tag) like ?
-                                        OR lower(inputText) like ?',
+
+        Note.where(inTrashcan: false).where(['lower(title) like ? OR lower(tag) like ? OR lower(inputText) like ?',
                                         query, query, query,])
 
     end
