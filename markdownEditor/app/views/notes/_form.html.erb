@@ -74,8 +74,10 @@
     <%= f.text_area :inputText, :cols => 150, :rows => 50 %>
   </div>
   
-  <div id="epiceditor"></div>
-  <div id="preview"></div>
+  <div class="row">
+    <div id="epiceditor" class="col-md-6"></div>
+    <div id="preview" class="col-md-6"></div>
+  </div>
   <%= javascript_include_tag "epiceditor.js" %>
   <script>
     var options = {
