@@ -21,10 +21,12 @@ class Note < ActiveRecord::Base
         query = query.downcase
         query = "%#{query}%"
         
-        Note.where(['lower(title) like ?
-                  OR lower(tag) like ?
-                  OR lower(inputText) like ?',
-                  query, query, query])
+
+        Note.where(inTrashcan: false).where(['lower(title) like ?
+                                        OR lower(tag) like ?
+                                        OR lower(inputText) like ?',
+                                        query, query, query,])
+
     end
 
     def share
