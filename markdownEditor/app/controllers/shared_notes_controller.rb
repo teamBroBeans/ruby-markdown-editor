@@ -1,5 +1,7 @@
 class SharedNotesController < ApplicationController
-     before_action :set_note, only: [:show]
+    skip_before_filter :authenticate_user!, :only => [:show]
+    before_action :set_note, only: [:show]
+
   def show
       
       if @note

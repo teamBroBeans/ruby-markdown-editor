@@ -1,8 +1,10 @@
 <h1>Editing Note</h1>
 
 <% if @note.slug.present? %>
+
 	<p> Note has been Shared.<br>
 	<%= link_to 'http://localhost:3000/shared_notes/' + @note.slug, :controller => :shared_notes, :action=> :show, :slug => @note.slug%> </p>
+
 	<% else %>
 	<%= button_to "Share", share_note_path(@note), method: :put, :id => "shareButton"%>
 	

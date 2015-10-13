@@ -4,6 +4,7 @@ class CreateNotes < ActiveRecord::Migration
       t.string :title
       t.string :tag
       t.string :inputText
+      t.integer :user_id
 
       t.timestamps null: false
     end
