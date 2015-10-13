@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20151009183323) do
     t.string   "title"
     t.string   "tag"
     t.string   "inputText"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean  "inTrashcan"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "inTrashcan", default: false, null: false
     t.string   "slug"
     t.integer  "user_id"
   end
