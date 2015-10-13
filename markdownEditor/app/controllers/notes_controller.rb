@@ -10,12 +10,13 @@ class NotesController < ApplicationController
 
   
   def index
-    
     if current_user
-      
-      @notes = Note.where('user_id = ? AND
+      if  params[:q]
+          @notes = Note.where('user_id = ? AND inTrashcan = ?', current_user, false).find_all_by_query(params[:q])
+      else
+        @notes = Note.where('user_id = ? AND
                             inTrashcan = ?', current_user, false)
-
+      end
     else
       redirect_to new_user_session_path, notice: 'You are not logged in.'
     end
