@@ -87,3 +87,13 @@ li:hover {
   overflow: scroll;
   margin-left: 5px;
 }
+
+#shareNote{
+  color: #0F52F0;
+  font-style: italic;
+}
+
+#urlShareNote {
+  color: #0B50F2;
+  font-weight: bold;
+}
