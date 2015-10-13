@@ -21,12 +21,20 @@ Rails.application.routes.draw do
       end
   end
   
+  resources :notes do
+      member do
+          put 'unshare'
+      end
+  end
+  
   get "home/textEditor"
   
     devise_for :users do
     get "/login" => "devise/sessions#new"
     get "/register" => "devise/registrations#new"
     get "/logout" => "devise/registrations#cancel"
+    # ,
+    # :controllers => {:sessions => 'users/sessions'}
   end
   root controller: 'notes', action: 'index'
   # The priority is based upon order of creation: first created -> highest priority.
