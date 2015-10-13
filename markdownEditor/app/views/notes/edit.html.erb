@@ -4,11 +4,12 @@
 	<p> Note has been Shared. The url for the shared note is: <br>
 	<%=url_for share_note_url(@note.slug)%> </p>
 	<% else %>
-	<%= button_to "Share", share_note_path(@note), method: :put, :id => "shareButton"%>
+	<%= button_to share_note_path(@note), method: :put, :id => "shareButton", class: 'btn btn-default' do %>
+		<i class="glyphicon glyphicon-share"></i> Share
+	<% end %>
 	
 <% end %>
 
 <%= render 'form' %>
-<%= link_to 'Back', notes_path %>
 
 
