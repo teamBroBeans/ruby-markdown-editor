@@ -15,11 +15,11 @@ class TrashcanController < ApplicationController
   end
 
   def delete
+
     @note = Note.find(params[:id])
-    
     @note.destroy
     
-    redirect_to trashcan_url, notice: "Your note #{note.title} was successfully deleted"
+    redirect_to trashcan_url, notice: "Your note was successfully deleted"
   end
   
   def deleteall
