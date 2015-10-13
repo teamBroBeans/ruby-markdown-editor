@@ -1,36 +1,29 @@
 class NotesController < ApplicationController
+
   before_action :authenticate_user!
   before_action :set_note, only: [:share, :unshare, :edit, :update, :destroy]
   before_action :get_tags, only: [:share, :unshare, :new, :edit, :create, :update]
 
-  # def 
-  #   if user_signed_in? 
-  #     current_user.email
-  # end
-  #   current_user.email
-  # end
 
   def get_tags 
     @tags = Tag.pluck(:name).map{|t| t}.to_json
 
   end
-  # GET /notes
-  # GET /notes.json
+
+  
   def index
-      if params[:q]
-          @notes = Note.find_all_by_query(params[:q])
+    if current_user
+      if  params[:q]
+          @notes = Note.where('user_id = ? AND inTrashcan = ?', current_user, false).find_all_by_query(params[:q])
       else
-          @notes = Note.where(inTrashcan: [false, nil])
+        @notes = Note.where('user_id = ? AND
+                            inTrashcan = ?', current_user, false)
       end
+    else
+      redirect_to new_user_session_path, notice: 'You are not logged in.'
+    end
   end
 
-
-  # GET /notes/1
-  # GET /notes/1.json
-  #commenting out for now, assuming it will be deleted later
-#  def show
-#    @note.tag = @note.get_all_tags
-#  end
 
   def share
     @note.share
@@ -40,20 +33,21 @@ class NotesController < ApplicationController
         render :edit
     end
   end
-  
-def unshare
+
+  def unshare
     @note.unshare
     @note.save
     redirect_to edit_note_path(@note), notice: "Note was unshared."
-end
+  end
 
-# @article = current_user.articles.new(article_params)
+
 
 # GET /notes/new
   def new
-    # @note = current_user.notes.new
-        @note = Note.new
-
+    # if current_user
+      @note = current_user.notes.new
+      # @note = Note.new
+    # end
   end
 
   # GET /notes/1/edit
@@ -64,8 +58,10 @@ end
   # POST /notes
   # POST /notes.json
   def create
-    @note = Note.new(note_params)
 
+    @note = Note.new(note_params)
+    @note.user = current_user
+    @note.inTrashcan = false
     respond_to do |format|
 
       if @note.save
@@ -79,6 +75,8 @@ end
       end
     end
   end
+  
+  
 
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
@@ -109,7 +107,7 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
-      @note = Note.find(params[:id])
+       @note = Note.find(params[:id])
     end
     
     # Never trust parameters from the scary internet, only allow the white list through.
