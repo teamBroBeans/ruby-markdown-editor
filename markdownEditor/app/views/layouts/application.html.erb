@@ -20,9 +20,9 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><%=link_to 'home', controller: 'home', action: 'textEditor' %></li>
-          <li><%=link_to 'notes', controller: 'notes', action: 'index' %></li>
-          <li><%=link_to 'trashcan', controller: 'trashcan', action: 'index' %></li>
+          <li><%=link_to 'home', home_textEditor_path %></li>
+          <li><%=link_to 'notes', notes_path %></li>
+          <li><%=link_to 'trashcan', trashcan_path %></li>
           <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
         </ul>
         <%= render "/shared/search" %>
