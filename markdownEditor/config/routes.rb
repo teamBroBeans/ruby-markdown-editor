@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   
   get "/shared_notes/:slug" => "shared_notes#show"
   
-  
+  get "/home/textEditor"
 
   resources :notes do
       member do
@@ -27,9 +27,7 @@ Rails.application.routes.draw do
       end
   end
   
-  get "home/textEditor"
-  
-    devise_for :users do
+  devise_for :users do
     get "/login" => "devise/sessions#new"
     get "/register" => "devise/registrations#new"
     get "/logout" => "devise/registrations#cancel"
