@@ -1,6 +1,9 @@
 <h1>Listing Trashcan items</h1>
 
-<%= link_to 'Delete All in Trashcan', :controller => :trashcan, :action => :deleteall %>
+<%= link_to trashcan_deleteall_path, class: 'btn btn-danger', 
+data: { confirm: 'Really delete all notes in trashcan?' } do %>
+  <i class="glyphicon glyphicon-warning-sign"></i> Delete All
+<% end %>
 <table class="table table-striped">
   <thead>
     <tr>
