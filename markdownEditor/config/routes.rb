@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   
   
   get 'trashcan' => "trashcan#index"
-  get 'trashcan/create/:id' => "trashcan#create"
-  get 'trashcan/delete/:id' => "trashcan#delete"
-  get 'trashcan/undo/:id' => "trashcan#undo"
+  get 'trashcan/create/:id' => "trashcan#create", :as => :trashcan_create
+  get 'trashcan/delete/:id' => "trashcan#delete", :as => :trashcan_delete
+  get 'trashcan/undo/:id' => "trashcan#undo", :as => :trashcan_undo
   get 'trashcan/deleteall' => 'trashcan#deleteall'
   
   get "/shared_notes/:slug" => "shared_notes#show"
   
-  
+  get "/home/textEditor"
 
   resources :notes do
       member do
@@ -27,9 +27,7 @@ Rails.application.routes.draw do
       end
   end
   
-  get "home/textEditor"
-  
-    devise_for :users do
+  devise_for :users do
     get "/login" => "devise/sessions#new"
     get "/register" => "devise/registrations#new"
     get "/logout" => "devise/registrations#cancel"

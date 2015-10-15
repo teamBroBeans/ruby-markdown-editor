@@ -1,10 +1,10 @@
 
 <h1>Listing Notes</h1>
-<%= render "/shared/search" %>
-<%= link_to '<button type="button">New Note</button>'.html_safe, new_note_path %>
+<%= link_to new_note_path, class: 'btn btn-default' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Note
+<% end %>
 
-  
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Title</th>
@@ -22,8 +22,16 @@
         <td><%= note.tag %></td>
         <td><%= note.created_at.to_formatted_s(:long_ordinal) %></td>
 				<td><%= time_ago_in_words(note.updated_at) %> ago</td>
-        <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to "Trash", :controller => :trashcan, :action => :create, :id => note.id %></td>
+        <td>
+          <%= link_to edit_note_path(note), class: 'btn btn-success' do %>
+            <i class="glyphicon glyphicon-pencil"></i> Edit
+          <% end %>
+        </td>
+        <td>
+          <%= link_to trashcan_create_path(:id => note.id), class: 'btn btn-danger' do %>
+            <i class="glyphicon glyphicon-trash"></i> Trash
+          <% end %>
+        </td>
       </tr>
       <% end %>
   	</tbody>

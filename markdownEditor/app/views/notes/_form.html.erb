@@ -12,11 +12,9 @@
   <% end %>
   
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title, :maxlength => 250, :size=> 40 %>
-  </div>
-  <div class="field">
-    <%= f.label :tag %><br>
+    <%= f.label :tag %>
     <%= f.text_field :tag, value: @note.tag %>
   </div>
   
@@ -70,12 +68,13 @@
   
   
   <div class="field">
-    <%= f.label :Note %><br>
     <%= f.text_area :inputText, :cols => 150, :rows => 50 %>
   </div>
   
-  <div id="epiceditor"></div>
-  <div id="preview"></div>
+  <div class="row">
+    <div id="epiceditor" class="col-md-6"></div>
+    <div id="preview" class="col-md-6"></div>
+  </div>
   <%= javascript_include_tag "epiceditor.js" %>
   <script>
     var options = {
@@ -101,6 +100,11 @@
   </script>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= link_to notes_path, class: 'btn btn-default' do %>
+    	<i class="glyphicon glyphicon-chevron-left"></i> Back
+    <% end %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+     <i class="glyphicon glyphicon-floppy-save"></i> Save
+    <% end %>
   </div>
 <% end %>

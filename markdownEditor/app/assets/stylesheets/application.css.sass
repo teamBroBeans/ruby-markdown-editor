@@ -1,0 +1,59 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets"
+@import "bootstrap"
+
+.actions
+  clear: both
+
+#epiceditor, #preview
+  border: 1px solid gray
+
+#note_inputText 
+  display: none
+
+
+#save
+  display: center
+
+
+.ui-widget 
+  color: #222222
+  border-radius: 0px
+
+
+#note_tag ul
+  list-style-type: none
+  width: 60px
+
+
+#note_tag li
+  background-color: #cce5ff
+  border: solid #CCFFFF 1px
+
+
+#note_tag li:hover
+  background-color: #00cccc
+
+
+.ui-helper-hidden-accessible
+  display: none
+
+
+#preview 
+  height: 400px
+  overflow: scroll

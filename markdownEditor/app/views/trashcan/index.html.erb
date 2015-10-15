@@ -1,8 +1,10 @@
 <h1>Listing Trashcan items</h1>
 
-<%= link_to 'Delete All in Trashcan', :controller => :trashcan, :action => :deleteall %>
-
-<table>
+<%= link_to trashcan_deleteall_path, class: 'btn btn-danger', 
+data: { confirm: 'Really delete all notes in trashcan?' } do %>
+  <i class="glyphicon glyphicon-warning-sign"></i> Delete All
+<% end %>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Title</th>
@@ -20,9 +22,17 @@
         <td><%= note.tag %></td>
         <td><%= note.created_at.to_formatted_s(:long_ordinal) %></td>
 				<td><%= time_ago_in_words(note.updated_at) %> ago</td>
-        <td><%= link_to 'Delete', :controller => :trashcan, :action => :delete, :id => note.id, data: { confirm: 'Are
-         you sure?' } %></td>
-         <td><%= link_to 'Undo', :controller => :trashcan, :action => :undo, :id => note.id %></td>
+        <td>
+          <%= link_to trashcan_undo_path(:id => note.id), class: 'btn btn-warning' do %>
+            <i class="glyphicon glyphicon-ban-circle"></i> Undo
+          <% end %>
+        </td>
+        <td>
+          <%= link_to trashcan_delete_path(:id => note.id), class: 'btn btn-danger', 
+          data: { confirm: 'Are you sure?' } do %>
+            <i class="glyphicon glyphicon-trash"></i> Delete
+          <% end %>
+        </td>
       </tr>
       <% end %>
   	</tbody>
