@@ -1,6 +1,6 @@
 <%= form_for(@note) do |f| %>
   <% if @note.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="row">
       <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
 
       <ul>
@@ -11,11 +11,15 @@
     </div>
   <% end %>
   
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title, :maxlength => 250, :size=> 40 %>
-    <%= f.label :tag %>
-    <%= f.text_field :tag, value: @note.tag %>
+  <div class="form-group row">
+    <div class="col-sm-6">
+      <%= f.label :title %>
+      <%= f.text_field :title, :maxlength => 250, class: 'form-control' %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.label :tag %>
+      <%= f.text_field :tag, value: @note.tag, class: 'form-control' %>
+    </div>
   </div>
   
   
