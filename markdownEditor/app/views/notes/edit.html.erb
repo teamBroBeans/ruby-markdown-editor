@@ -1,14 +1,25 @@
 <h1>Editing Note</h1>
+<div class="row">
+	<div class="form-group">
+		<% if @note.slug.present? %>
+		<div class="input-group">
+			<span class="input-group-btn">
+				<%= button_to unshare_note_path(@note), class: "btn btn-warning", method: :put do %>
+					<i class="glyphicon glyphicon-share"></i> Unshare
+				<% end %>
+			</span>
+			<input type="text" class="form-control" value="<%= url_for shared_notes_url(@note.slug)%>">
+		</div>	
+		<% else %>
+		<div class="input-group">
+			<%= button_to share_note_path(@note), method: :put, :id => "shareButton", class: 'btn btn-warning' do %>
+				<i class="glyphicon glyphicon-share"></i> Share
+			<% end %>
+		</div>
+		<% end %>
+	</div>
+</div>
 
-<% if @note.slug.present? %>
-	<p> Note has been Shared. The url for the shared note is: <br>
-	<%=url_for share_note_url(@note.slug)%> </p>
-	<%= link_to 'Unshare', unshare_note_path(@note), class: "btn", method: :put %>
-<% else %>
-	<%= button_to share_note_path(@note), method: :put, :id => "shareButton", class: 'btn btn-default' do %>
-		<i class="glyphicon glyphicon-share"></i> Share
-	<% end %>
-<% end %>
 
 <%= render 'form' %>
 
