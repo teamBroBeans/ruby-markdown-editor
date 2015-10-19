@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'trashcan/undo/:id' => "trashcan#undo", :as => :trashcan_undo
   get 'trashcan/deleteall' => 'trashcan#deleteall'
   
-  get "/shared_notes/:slug" => "shared_notes#show"
+  get "/shared_notes/:slug" => "shared_notes#show", :as => :shared_notes
   
   get "/home/textEditor"
 
